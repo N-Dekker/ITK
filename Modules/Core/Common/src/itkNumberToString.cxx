@@ -23,23 +23,6 @@
 namespace
 {
 
-bool
-ConvertToShortest(const double_conversion::DoubleToStringConverter & converter,
-                  const double                                       val,
-                  double_conversion::StringBuilder &                 builder)
-{
-  return converter.ToShortest(val, &builder);
-}
-
-bool
-ConvertToShortest(const double_conversion::DoubleToStringConverter & converter,
-                  const float                                        val,
-                  double_conversion::StringBuilder &                 builder)
-{
-  // Call the converter member function that is specific for single-precision `float`.
-  return converter.ToShortestSingle(val, &builder);
-}
-
 template <typename TValue>
 std::string
 FloatingPointNumberToString(const TValue val)
@@ -52,7 +35,7 @@ FloatingPointNumberToString(const TValue val)
 
   double_conversion::StringBuilder builder(buf, sizeof(buf));
 
-  if (!ConvertToShortest(double_conversion::DoubleToStringConverter::EcmaScriptConverter(), val, builder))
+  if (!double_conversion::DoubleToStringConverter::EcmaScriptConverter().ToShortestString(val, &builder))
   {
     itkGenericExceptionMacro(<< "Conversion failed for " << val);
   }
