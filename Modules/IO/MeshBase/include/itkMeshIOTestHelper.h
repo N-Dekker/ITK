@@ -430,4 +430,100 @@ AllocateBuffer(void ** data, itk::IOComponentEnum componentType, itk::SizeValueT
   *data = buffer;
 }
 
+namespace itk
+{
+namespace MeshIOTestHelper
+{
+class AbstractBuffer
+{
+public:
+  virtual void *
+  GetData() = 0;
+};
+
+template <typename T>
+class ConcreteBuffer : public AbstractBuffer
+{
+public:
+  explicit ConcreteBuffer(const itk::SizeValueType bufferSize)
+    : m_Data(new T[bufferSize])
+  {}
+
+private:
+  void *
+  GetData() override
+  {
+    return m_Data.get();
+  }
+
+  std::unique_ptr<T[]> m_Data;
+};
+
+class Buffer
+{
+public:
+  Buffer(const itk::IOComponentEnum componentType, const itk::SizeValueType bufferSize)
+    : m_AbstractBuffer(MakeBuffer(componentType, bufferSize))
+  {}
+
+  void *
+  GetData()
+  {
+    return m_AbstractBuffer == nullptr ? nullptr : m_AbstractBuffer->GetData();
+  }
+
+private:
+  template <typename T>
+  static std::unique_ptr<AbstractBuffer>
+  MakeBuffer(const itk::SizeValueType bufferSize)
+  {
+    return std::make_unique<ConcreteBuffer<T>>(bufferSize);
+  }
+
+  static std::unique_ptr<AbstractBuffer>
+  MakeBuffer(const itk::IOComponentEnum componentType, const itk::SizeValueType bufferSize)
+  {
+    switch (componentType)
+    {
+      case itk::IOComponentEnum::CHAR:
+        return Buffer::MakeBuffer<char>(bufferSize);
+      case itk::IOComponentEnum::UCHAR:
+        return Buffer::MakeBuffer<unsigned char>(bufferSize);
+      case itk::IOComponentEnum::USHORT:
+        return Buffer::MakeBuffer<unsigned short>(bufferSize);
+      case itk::IOComponentEnum::SHORT:
+        return Buffer::MakeBuffer<short>(bufferSize);
+      case itk::IOComponentEnum::UINT:
+        return Buffer::MakeBuffer<unsigned int>(bufferSize);
+      case itk::IOComponentEnum::INT:
+        return Buffer::MakeBuffer<unsigned int>(bufferSize);
+      case itk::IOComponentEnum::ULONG:
+        return Buffer::MakeBuffer<unsigned long>(bufferSize);
+      case itk::IOComponentEnum::LONG:
+        return Buffer::MakeBuffer<long>(bufferSize);
+      case itk::IOComponentEnum::LONGLONG:
+        return Buffer::MakeBuffer<long long>(bufferSize);
+      case itk::IOComponentEnum::ULONGLONG:
+        return Buffer::MakeBuffer<unsigned long long>(bufferSize);
+      case itk::IOComponentEnum::FLOAT:
+        return Buffer::MakeBuffer<float>(bufferSize);
+      case itk::IOComponentEnum::DOUBLE:
+        return Buffer::MakeBuffer<double>(bufferSize);
+      case itk::IOComponentEnum::LDOUBLE:
+        return Buffer::MakeBuffer<long double>(bufferSize);
+      case itk::IOComponentEnum::UNKNOWNCOMPONENTTYPE:
+        break;
+      default:
+        break;
+    }
+    return std::unique_ptr<AbstractBuffer>();
+  }
+
+  std::unique_ptr<AbstractBuffer> m_AbstractBuffer;
+};
+
+} // namespace MeshIOTestHelper
+
+} // namespace itk
+
 #endif

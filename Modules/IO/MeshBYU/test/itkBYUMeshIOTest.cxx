@@ -47,11 +47,9 @@ itkBYUMeshIOTest(int argc, char * argv[])
   testStatus = TestBaseClassMethodsMeshIO<itk::BYUMeshIO>(byuMeshIOBaseTest);
 
   // Test reading exceptions
-  void * pointBuffer = nullptr;
-  ITK_TRY_EXPECT_EXCEPTION(byuMeshIO->ReadPoints(pointBuffer));
-
-  void * cellBuffer = nullptr;
-  ITK_TRY_EXPECT_EXCEPTION(byuMeshIO->ReadCells(cellBuffer));
+  void * voidBuffer = nullptr;
+  ITK_TRY_EXPECT_EXCEPTION(byuMeshIO->ReadPoints(voidBuffer));
+  ITK_TRY_EXPECT_EXCEPTION(byuMeshIO->ReadCells(voidBuffer));
 
   std::string inputFileName = argv[3];
   ITK_TEST_EXPECT_TRUE(!byuMeshIO->CanReadFile(inputFileName.c_str()));
@@ -98,16 +96,16 @@ itkBYUMeshIOTest(int argc, char * argv[])
   itk::SizeValueType pointBufferSize = 1000;
   itk::SizeValueType cellBufferSize = 1000;
 
-  AllocateBuffer(&pointBuffer, byuMeshIO->GetPointComponentType(), pointBufferSize);
-  AllocateBuffer(&cellBuffer, byuMeshIO->GetCellComponentType(), cellBufferSize);
+  itk::MeshIOTestHelper::Buffer pointBuffer(byuMeshIO->GetPointComponentType(), pointBufferSize);
+  itk::MeshIOTestHelper::Buffer cellBuffer(byuMeshIO->GetCellComponentType(), cellBufferSize);
 
-  ITK_TRY_EXPECT_NO_EXCEPTION(byuMeshIO->ReadPoints(pointBuffer));
+  ITK_TRY_EXPECT_NO_EXCEPTION(byuMeshIO->ReadPoints(pointBuffer.GetData()));
 
   void * pointDataBuffer = nullptr;
   // Not used; empty method body; called for coverage purposes
   byuMeshIO->ReadPointData(pointDataBuffer);
 
-  ITK_TRY_EXPECT_NO_EXCEPTION(byuMeshIO->ReadCells(cellBuffer));
+  ITK_TRY_EXPECT_NO_EXCEPTION(byuMeshIO->ReadCells(cellBuffer.GetData()));
 
   void * cellDataBuffer = nullptr;
   // Not used; empty method body; called for coverage purposes
@@ -116,8 +114,8 @@ itkBYUMeshIOTest(int argc, char * argv[])
   // Test writing exceptions
   std::string outputFileName = "";
   byuMeshIO->SetFileName(outputFileName);
-  ITK_TRY_EXPECT_EXCEPTION(byuMeshIO->WritePoints(pointBuffer));
-  ITK_TRY_EXPECT_EXCEPTION(byuMeshIO->WriteCells(cellBuffer));
+  ITK_TRY_EXPECT_EXCEPTION(byuMeshIO->WritePoints(pointBuffer.GetData()));
+  ITK_TRY_EXPECT_EXCEPTION(byuMeshIO->WriteCells(cellBuffer.GetData()));
   ITK_TRY_EXPECT_EXCEPTION(byuMeshIO->WriteMeshInformation());
 
   outputFileName = argv[4];
@@ -128,12 +126,12 @@ itkBYUMeshIOTest(int argc, char * argv[])
   byuMeshIO->SetFileName(outputFileName.c_str());
 
   // Write the actual data
-  ITK_TRY_EXPECT_NO_EXCEPTION(byuMeshIO->WritePoints(pointBuffer));
+  ITK_TRY_EXPECT_NO_EXCEPTION(byuMeshIO->WritePoints(pointBuffer.GetData()));
 
   // Not used; empty method body; called for coverage purposes
   byuMeshIO->WritePointData(pointDataBuffer);
 
-  ITK_TRY_EXPECT_NO_EXCEPTION(byuMeshIO->WriteCells(cellBuffer));
+  ITK_TRY_EXPECT_NO_EXCEPTION(byuMeshIO->WriteCells(cellBuffer.GetData()));
 
   // Not used; empty method body; called for coverage purposes
   byuMeshIO->WriteCellData(cellDataBuffer);
@@ -173,9 +171,6 @@ itkBYUMeshIOTest(int argc, char * argv[])
   ITK_TEST_EXPECT_EQUAL(byuMeshIO->GetNumberOfCellPixelComponents(),
                         readWriteByuMeshIO->GetNumberOfCellPixelComponents());
 
-
-  ::operator delete(pointBuffer);
-  ::operator delete(cellBuffer);
 
   std::cout << "Test finished." << std::endl;
   return testStatus;
