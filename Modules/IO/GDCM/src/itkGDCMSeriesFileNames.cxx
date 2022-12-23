@@ -268,8 +268,8 @@ GDCMSeriesFileNames::PrintSelf(std::ostream & os, Indent indent) const
 
   unsigned int i;
   os << indent << "InputDirectory: " << m_InputDirectory << std::endl;
-  os << indent << "LoadSequences:" << m_LoadSequences << std::endl;
-  os << indent << "LoadPrivateTags:" << m_LoadPrivateTags << std::endl;
+  os << indent << "LoadSequences: " << m_LoadSequences << std::endl;
+  os << indent << "LoadPrivateTags: " << m_LoadPrivateTags << std::endl;
   if (m_Recursive)
   {
     os << indent << "Recursive: True" << std::endl;

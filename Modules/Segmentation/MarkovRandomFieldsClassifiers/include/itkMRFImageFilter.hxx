@@ -56,7 +56,7 @@ MRFImageFilter<TInputImage, TClassifiedImage>::PrintSelf(std::ostream & os, Inde
 
   os << indent << " Error tolerance for convergence: " << m_ErrorTolerance << std::endl;
 
-  os << indent << " Size of the MRF neighborhood radius:" << m_InputImageNeighborhoodRadius << std::endl;
+  os << indent << " Size of the MRF neighborhood radius: " << m_InputImageNeighborhoodRadius << std::endl;
 
   os << indent
      << " Number of elements in MRF neighborhood :" << static_cast<SizeValueType>(m_MRFNeighborhoodWeight.size())
@@ -64,7 +64,7 @@ MRFImageFilter<TInputImage, TClassifiedImage>::PrintSelf(std::ostream & os, Inde
 
   os << indent << " Neighborhood weight : " << m_MRFNeighborhoodWeight << std::endl;
 
-  os << indent << " Smoothing factor for the MRF neighborhood:" << m_SmoothingFactor << std::endl;
+  os << indent << " Smoothing factor for the MRF neighborhood: " << m_SmoothingFactor << std::endl;
 
   os << indent << "StopCondition: " << m_StopCondition << std::endl;
 

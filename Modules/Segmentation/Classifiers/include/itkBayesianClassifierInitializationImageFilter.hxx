@@ -295,7 +295,7 @@ BayesianClassifierInitializationImageFilter<TInputImage, TProbabilityPrecisionTy
   os << indent << "NumberOfClasses: " << m_NumberOfClasses << std::endl;
   if (m_MembershipFunctionContainer)
   {
-    os << indent << "Membership function container:" << m_MembershipFunctionContainer << std::endl;
+    os << indent << "Membership function container: " << m_MembershipFunctionContainer << std::endl;
   }
   if (m_UserSuppliesMembershipFunctions)
   {

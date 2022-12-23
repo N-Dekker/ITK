@@ -199,7 +199,7 @@ DirectedHausdorffDistanceImageFilter<TInputImage1, TInputImage2>::PrintSelf(std:
 
   os << indent << "DistanceMap: " << m_DistanceMap << std::endl;
   os << indent << "MaxDistance: " << m_MaxDistance << std::endl;
-  os << indent << "PixelCount:" << m_PixelCount << std::endl;
+  os << indent << "PixelCount: " << m_PixelCount << std::endl;
   os << indent << "Sum: " << m_Sum.GetSum();
 
   os << std::endl;
