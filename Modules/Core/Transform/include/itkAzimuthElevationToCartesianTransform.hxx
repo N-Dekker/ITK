@@ -52,9 +52,9 @@ AzimuthElevationToCartesianTransform<TParametersValueType, VDimension>::PrintSel
   os << indent << "Azimuth = 1 / (tan(x/z))" << std::endl;
   os << indent << "Elevation = 1 / (tan(y/z))" << std::endl;
   os << indent << "r = sqrt(x*x + y*y + z*z)" << std::endl;
-  os << indent << "m_MaxAzimuth = " << m_MaxAzimuth << std::endl;
-  os << indent << "m_MaxElevation = " << m_MaxElevation << std::endl;
-  os << indent << "m_RadiusSampleSize = " << m_RadiusSampleSize << std::endl;
+  os << indent << "m_MaxAzimuth: " << m_MaxAzimuth << std::endl;
+  os << indent << "m_MaxElevation: " << m_MaxElevation << std::endl;
+  os << indent << "m_RadiusSampleSize: " << m_RadiusSampleSize << std::endl;
   os << indent << "m_AzimuthAngularSeparation = ";
   os << indent << m_AzimuthAngularSeparation << std::endl;
   os << indent << "m_ElevationAngularSeparation = ";

@@ -223,16 +223,16 @@ ExhaustiveOptimizerv4<TInternalComputationValueType>::PrintSelf(std::ostream & o
 {
   Superclass::PrintSelf(os, indent);
 
-  os << indent << "InitialPosition = " << m_InitialPosition << std::endl;
-  os << indent << "CurrentValue = " << m_CurrentValue << std::endl;
-  os << indent << "NumberOfSteps = " << m_NumberOfSteps << std::endl;
-  os << indent << "Stop = " << m_Stop << std::endl;
-  os << indent << "StepLength = " << m_StepLength << std::endl;
-  os << indent << "CurrentIndex = " << m_CurrentIndex << std::endl;
-  os << indent << "MaximumMetricValue = " << m_MaximumMetricValue << std::endl;
-  os << indent << "MinimumMetricValue = " << m_MinimumMetricValue << std::endl;
-  os << indent << "MinimumMetricValuePosition = " << m_MinimumMetricValuePosition << std::endl;
-  os << indent << "MaximumMetricValuePosition = " << m_MaximumMetricValuePosition << std::endl;
+  os << indent << "InitialPosition: " << m_InitialPosition << std::endl;
+  os << indent << "CurrentValue: " << m_CurrentValue << std::endl;
+  os << indent << "NumberOfSteps: " << m_NumberOfSteps << std::endl;
+  os << indent << "Stop: " << m_Stop << std::endl;
+  os << indent << "StepLength: " << m_StepLength << std::endl;
+  os << indent << "CurrentIndex: " << m_CurrentIndex << std::endl;
+  os << indent << "MaximumMetricValue: " << m_MaximumMetricValue << std::endl;
+  os << indent << "MinimumMetricValue: " << m_MinimumMetricValue << std::endl;
+  os << indent << "MinimumMetricValuePosition: " << m_MinimumMetricValuePosition << std::endl;
+  os << indent << "MaximumMetricValuePosition: " << m_MaximumMetricValuePosition << std::endl;
 }
 } // end namespace itk
 

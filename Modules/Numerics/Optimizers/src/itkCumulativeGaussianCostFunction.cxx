@@ -207,6 +207,6 @@ void
 CumulativeGaussianCostFunction::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Range Dimension = " << m_RangeDimension << std::endl;
+  os << indent << "Range Dimension: " << m_RangeDimension << std::endl;
 }
 } // end namespace itk

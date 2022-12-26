@@ -371,7 +371,7 @@ Euler3DTransform<TParametersValueType>::PrintSelf(std::ostream & os, Indent inde
 
   os << indent << "Euler's angles: AngleX=" << m_AngleX << " AngleY=" << m_AngleY << " AngleZ=" << m_AngleZ
      << std::endl;
-  os << indent << "m_ComputeZYX = " << m_ComputeZYX << std::endl;
+  os << indent << "m_ComputeZYX: " << m_ComputeZYX << std::endl;
 }
 
 } // namespace itk

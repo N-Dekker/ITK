@@ -1477,14 +1477,14 @@ FEMRegistrationFilter<TMovingImage, TFixedImage, TFemObject>::PrintSelf(std::ost
   os << indent << "Pixels Per Element: " << m_MeshPixelsPerElementAtEachResolution << std::endl;
   os << indent << "Number of Integration Points: " << m_NumberOfIntegrationPoints << std::endl;
   os << indent << "Metric Width: " << m_MetricWidth << std::endl;
-  os << indent << "Line Search Energy = " << m_DoLineSearchOnImageEnergy << std::endl;
+  os << indent << "Line Search Energy: " << m_DoLineSearchOnImageEnergy << std::endl;
   os << indent << "Line Search Maximum Iterations: " << m_LineSearchMaximumIterations << std::endl;
   os << indent << "Use Mass Matrix: " << m_UseMassMatrix << std::endl;
   os << indent << "Employ Regridding: " << m_EmployRegridding << std::endl;
 
   os << indent << "Use Landmarks: " << m_UseLandmarks << std::endl;
   os << indent << "Use Normalized Gradient: " << m_UseNormalizedGradient << std::endl;
-  os << indent << "Min Jacobian = " << m_MinJacobian << std::endl;
+  os << indent << "Min Jacobian: " << m_MinJacobian << std::endl;
 
   os << indent << "Image Scaling: " << m_ImageScaling << std::endl;
   os << indent << "Current Image Scaling: " << m_CurrentImageScaling << std::endl;

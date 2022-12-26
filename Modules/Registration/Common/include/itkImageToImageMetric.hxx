@@ -1284,7 +1284,7 @@ ImageToImageMetric<TFixedImage, TMovingImage>::PrintSelf(std::ostream & os, Inde
   if (m_UseFixedImageIndexes)
   {
     os << indent << "Use Fixed Image Indexes: True" << std::endl;
-    os << indent << "Number of Fixed Image Indexes = " << m_FixedImageIndexes.size() << std::endl;
+    os << indent << "Number of Fixed Image Indexes: " << m_FixedImageIndexes.size() << std::endl;
   }
   else
   {

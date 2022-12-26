@@ -261,15 +261,15 @@ void
 SimplexMeshVolumeCalculator<TInputMesh>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  //  os << indent << "Mesh   = " << m_SimplexMesh << std::endl;
-  os << indent << "Area = " << m_Area << std::endl;
-  os << indent << "Volume = " << m_Volume << std::endl;
-  os << indent << "VolumeX = " << m_VolumeX << std::endl;
-  os << indent << "VolumeY = " << m_VolumeY << std::endl;
-  os << indent << "VolumeZ = " << m_VolumeZ << std::endl;
-  os << indent << "Kx = " << m_Kx << std::endl;
-  os << indent << "Ky = " << m_Ky << std::endl;
-  os << indent << "Kz = " << m_Kz << std::endl;
+  //  os << indent << "Mesh: " << m_SimplexMesh << std::endl;
+  os << indent << "Area: " << m_Area << std::endl;
+  os << indent << "Volume: " << m_Volume << std::endl;
+  os << indent << "VolumeX: " << m_VolumeX << std::endl;
+  os << indent << "VolumeY: " << m_VolumeY << std::endl;
+  os << indent << "VolumeZ: " << m_VolumeZ << std::endl;
+  os << indent << "Kx: " << m_Kx << std::endl;
+  os << indent << "Ky: " << m_Ky << std::endl;
+  os << indent << "Kz: " << m_Kz << std::endl;
   os << indent << "NumberOfTriangles: " << m_NumberOfTriangles << std::endl;
 }
 } // namespace itk

@@ -167,9 +167,9 @@ ArrowSpatialObject<TDimension>::PrintSelf(std::ostream & os, Indent indent) cons
 {
   os << indent << "ArrowSpatialObject(" << this << ")" << std::endl;
   Superclass::PrintSelf(os, indent);
-  os << indent << "Object Position = " << m_PositionInObjectSpace << std::endl;
-  os << indent << "Object Direction = " << m_DirectionInObjectSpace << std::endl;
-  os << indent << "Object Length = " << m_LengthInObjectSpace << std::endl;
+  os << indent << "Object Position: " << m_PositionInObjectSpace << std::endl;
+  os << indent << "Object Direction: " << m_DirectionInObjectSpace << std::endl;
+  os << indent << "Object Length: " << m_LengthInObjectSpace << std::endl;
 }
 } // end namespace itk
 

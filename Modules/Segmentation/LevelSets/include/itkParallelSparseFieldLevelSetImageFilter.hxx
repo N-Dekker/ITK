@@ -2516,7 +2516,7 @@ ParallelSparseFieldLevelSetImageFilter<TInputImage, TOutputImage>::PrintSelf(std
     {
       for (i = 0; i < m_Data[ThreadId].m_Layers.size(); ++i)
       {
-        os << indent << "m_Layers[" << i << "]: size=" << m_Data[ThreadId].m_Layers[i]->Size() << std::endl;
+        os << indent << "m_Layers[" << i << "]: size: " << m_Data[ThreadId].m_Layers[i]->Size() << std::endl;
         os << indent << m_Data[ThreadId].m_Layers[i];
       }
     }

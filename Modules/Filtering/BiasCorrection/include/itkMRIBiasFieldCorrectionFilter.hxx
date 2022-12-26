@@ -1002,7 +1002,7 @@ MRIBiasFieldCorrectionFilter<TInputImage, TOutputImage, TMaskImage>::PrintSelf(s
     os << "false" << std::endl;
   }
 
-  os << indent << "Biasfield degree = " << m_BiasFieldDegree << std::endl;
+  os << indent << "Biasfield degree: " << m_BiasFieldDegree << std::endl;
   os << indent << "Optimizer initial radius: " << m_OptimizerInitialRadius << std::endl;
   os << indent << "Optimizer growth factor: " << m_OptimizerGrowthFactor << std::endl;
   os << indent << "Optimizer shrink factor: " << m_OptimizerShrinkFactor << std::endl;

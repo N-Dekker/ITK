@@ -47,8 +47,8 @@ DeformableSimplexMesh3DGradientConstraintForceFilter<TInputMesh, TOutputMesh>::P
                                                                                          Indent         indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Range = " << m_Range << std::endl;
-  os << indent << "Image = " << m_Image << std::endl;
+  os << indent << "Range: " << m_Range << std::endl;
+  os << indent << "Image: " << m_Image << std::endl;
 }
 
 template <typename TInputMesh, typename TOutputMesh>

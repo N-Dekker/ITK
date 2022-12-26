@@ -385,22 +385,22 @@ CumulativeGaussianOptimizer::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
 
-  os << indent << "Difference Tolerance = " << m_DifferenceTolerance << std::endl;
-  os << indent << "Computed Mean = " << m_ComputedMean << std::endl;
-  os << indent << "Computed Standard Deviation = " << m_ComputedStandardDeviation << std::endl;
-  os << indent << "Computed Amplitude = " << m_ComputedAmplitude << std::endl;
-  os << indent << "Computed Transition Height = " << m_ComputedTransitionHeight << std::endl;
+  os << indent << "Difference Tolerance: " << m_DifferenceTolerance << std::endl;
+  os << indent << "Computed Mean: " << m_ComputedMean << std::endl;
+  os << indent << "Computed Standard Deviation: " << m_ComputedStandardDeviation << std::endl;
+  os << indent << "Computed Amplitude: " << m_ComputedAmplitude << std::endl;
+  os << indent << "Computed Transition Height: " << m_ComputedTransitionHeight << std::endl;
 
-  os << indent << "Upper Asymptote = " << m_UpperAsymptote << std::endl;
-  os << indent << "Lower Asymptote = " << m_LowerAsymptote << std::endl;
-  os << indent << "Offset For Mean = " << m_OffsetForMean << std::endl;
-  os << indent << "Verbose = " << m_Verbose << std::endl;
-  os << indent << "Fit Error = " << m_FitError << std::endl;
+  os << indent << "Upper Asymptote: " << m_UpperAsymptote << std::endl;
+  os << indent << "Lower Asymptote: " << m_LowerAsymptote << std::endl;
+  os << indent << "Offset For Mean: " << m_OffsetForMean << std::endl;
+  os << indent << "Verbose: " << m_Verbose << std::endl;
+  os << indent << "Fit Error: " << m_FitError << std::endl;
 
   os << indent << "StopConditionDescription: " << m_StopConditionDescription.str() << std::endl;
   if (m_FinalSampledArray)
   {
-    os << indent << "Final Sampled Array = " << m_FinalSampledArray << std::endl;
+    os << indent << "Final Sampled Array: " << m_FinalSampledArray << std::endl;
   }
   else
   {

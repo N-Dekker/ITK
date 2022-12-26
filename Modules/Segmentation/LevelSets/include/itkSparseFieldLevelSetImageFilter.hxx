@@ -1139,7 +1139,7 @@ SparseFieldLevelSetImageFilter<TInputImage, TOutputImage>::PrintSelf(std::ostrea
   os << indent << "m_BoundsCheckingActive: " << m_BoundsCheckingActive;
   for (i = 0; i < m_Layers.size(); ++i)
   {
-    os << indent << "m_Layers[" << i << "]: size=" << m_Layers[i]->Size() << std::endl;
+    os << indent << "m_Layers[" << i << "]: size: " << m_Layers[i]->Size() << std::endl;
     os << indent << m_Layers[i];
   }
   os << indent << "m_UpdateBuffer: size=" << static_cast<SizeValueType>(m_UpdateBuffer.size())

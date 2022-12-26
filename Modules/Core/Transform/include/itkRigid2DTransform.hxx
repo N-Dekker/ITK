@@ -51,7 +51,7 @@ void
 Rigid2DTransform<TParametersValueType>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Angle       = " << m_Angle << std::endl;
+  os << indent << "Angle: " << m_Angle << std::endl;
 }
 
 

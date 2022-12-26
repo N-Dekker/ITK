@@ -35,9 +35,9 @@ void
 KLMSegmentationBorder::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Lambda  = " << m_Lambda << std::endl;
-  os << indent << "Region1 = " << m_Region1 << std::endl;
-  os << indent << "Region2 = " << m_Region2 << std::endl;
+  os << indent << "Lambda: " << m_Lambda << std::endl;
+  os << indent << "Region1: " << m_Region1 << std::endl;
+  os << indent << "Region2: " << m_Region2 << std::endl;
 } // end PrintSelf
 
 void

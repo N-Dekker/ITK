@@ -231,7 +231,7 @@ SimplexMesh<TPixelType, VDimension, TMeshTraits>::PrintSelf(std::ostream & os, I
 {
   this->Superclass::PrintSelf(os, indent);
 
-  os << indent << "LastCellId = " << m_LastCellId << std::endl;
+  os << indent << "LastCellId: " << m_LastCellId << std::endl;
 
   GeometryMapPointer geometryMap = this->GetGeometryData();
   os << indent << "GeometryData: " << geometryMap << std::endl;

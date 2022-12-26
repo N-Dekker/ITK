@@ -367,7 +367,7 @@ ColorTable<TComponent>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
 
-  os << indent << "NumberOfColors = " << m_NumberOfColors << std::endl;
+  os << indent << "NumberOfColors: " << m_NumberOfColors << std::endl;
   for (unsigned int i = 0; i < m_NumberOfColors; ++i)
   {
     os << indent << "ColorName[" << i << "] = " << m_ColorName[i] << ", "
