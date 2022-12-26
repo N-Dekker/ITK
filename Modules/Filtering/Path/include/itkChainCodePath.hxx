@@ -97,7 +97,7 @@ void
 ChainCodePath<VDimension>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Start index:  " << m_Start << std::endl;
+  os << indent << "Start index: " << m_Start << std::endl;
 }
 } // end namespace itk
 

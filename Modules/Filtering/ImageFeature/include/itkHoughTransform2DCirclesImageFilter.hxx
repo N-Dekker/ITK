@@ -289,13 +289,13 @@ HoughTransform2DCirclesImageFilter<TInputPixelType, TOutputPixelType, TRadiusPix
 
   os << indent << "Threshold: " << m_Threshold << std::endl;
   os << indent << "Gradient Norm Threshold: " << m_GradientNormThreshold << std::endl;
-  os << indent << "Minimum Radius:  " << m_MinimumRadius << std::endl;
+  os << indent << "Minimum Radius: " << m_MinimumRadius << std::endl;
   os << indent << "Maximum Radius: " << m_MaximumRadius << std::endl;
-  os << indent << "Derivative Scale : " << m_SigmaGradient << std::endl;
+  os << indent << "Derivative Scale: " << m_SigmaGradient << std::endl;
   os << indent << "Number Of Circles: " << m_NumberOfCircles << std::endl;
   os << indent << "Disc Radius Ratio: " << m_DiscRadiusRatio << std::endl;
   os << indent << "Accumulator blur variance: " << m_Variance << std::endl;
-  os << indent << "Sweep angle : " << m_SweepAngle << std::endl;
+  os << indent << "Sweep angle: " << m_SweepAngle << std::endl;
   os << indent << "UseImageSpacing: " << m_UseImageSpacing << std::endl;
 
   itkPrintSelfObjectMacro(RadiusImage);

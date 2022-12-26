@@ -78,7 +78,7 @@ PointSetToPointSetMetric<TFixedPointSet, TMovingPointSet>::PrintSelf(std::ostrea
   Superclass::PrintSelf(os, indent);
   os << indent << "Moving PointSet: " << m_MovingPointSet.GetPointer() << std::endl;
   os << indent << "Fixed  PointSet: " << m_FixedPointSet.GetPointer() << std::endl;
-  os << indent << "Transform:    " << m_Transform.GetPointer() << std::endl;
+  os << indent << "Transform: " << m_Transform.GetPointer() << std::endl;
 }
 } // end namespace itk
 

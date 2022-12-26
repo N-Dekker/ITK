@@ -62,7 +62,7 @@ MRFImageFilter<TInputImage, TClassifiedImage>::PrintSelf(std::ostream & os, Inde
      << " Number of elements in MRF neighborhood :" << static_cast<SizeValueType>(m_MRFNeighborhoodWeight.size())
      << std::endl;
 
-  os << indent << " Neighborhood weight : " << m_MRFNeighborhoodWeight << std::endl;
+  os << indent << " Neighborhood weight: " << m_MRFNeighborhoodWeight << std::endl;
 
   os << indent << " Smoothing factor for the MRF neighborhood: " << m_SmoothingFactor << std::endl;
 

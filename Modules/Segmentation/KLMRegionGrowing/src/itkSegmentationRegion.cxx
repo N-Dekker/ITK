@@ -32,7 +32,7 @@ SegmentationRegion::PrintSelf(std::ostream & os, Indent indent) const
   Superclass::PrintSelf(os, indent);
 
   os << indent << "Segmentation region object" << std::endl;
-  os << indent << "Region label            : " << m_RegionLabel << std::endl;
-  os << indent << "Area of the region      : " << m_RegionArea << std::endl;
+  os << indent << "Region label: " << m_RegionLabel << std::endl;
+  os << indent << "Area of the region: " << m_RegionArea << std::endl;
 }
 } // end namespace itk

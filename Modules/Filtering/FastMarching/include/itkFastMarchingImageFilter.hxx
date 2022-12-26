@@ -72,7 +72,7 @@ FastMarchingImageFilter<TLevelSet, TSpeedImage>::PrintSelf(std::ostream & os, In
   os << indent << "OverrideOutputInformation: ";
   os << m_OverrideOutputInformation << std::endl;
   os << indent << "OutputRegion: " << m_OutputRegion << std::endl;
-  os << indent << "OutputOrigin:  " << m_OutputOrigin << std::endl;
+  os << indent << "OutputOrigin: " << m_OutputOrigin << std::endl;
   os << indent << "OutputSpacing: " << m_OutputSpacing << std::endl;
   os << indent << "OutputDirection: " << m_OutputDirection << std::endl;
 }

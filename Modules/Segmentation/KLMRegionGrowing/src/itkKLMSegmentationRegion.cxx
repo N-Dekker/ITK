@@ -30,7 +30,7 @@ void
 KLMSegmentationRegion::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Mean region intensity   : " << m_MeanRegionIntensity << std::endl;
+  os << indent << "Mean region intensity: " << m_MeanRegionIntensity << std::endl;
   os << indent << "Region border object" << std::endl;
 } // end PrintSelf
 

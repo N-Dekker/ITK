@@ -228,7 +228,7 @@ void
 PointSetToImageFilter<TInputPointSet, TOutputImage>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Size : " << m_Size << std::endl;
+  os << indent << "Size: " << m_Size << std::endl;
   os << indent << "Origin: " << m_Origin << std::endl;
   os << indent << "Spacing: " << m_Spacing << std::endl;
   os << indent << "Direction: " << m_Direction << std::endl;

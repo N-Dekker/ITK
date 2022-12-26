@@ -226,7 +226,7 @@ void
 ExtractOrthogonalSwath2DImageFilter<TImage>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Size:  " << m_Size << std::endl;
+  os << indent << "Size: " << m_Size << std::endl;
   os << indent
      << "DefaultPixelValue:  " << static_cast<typename NumericTraits<ImagePixelType>::PrintType>(m_DefaultPixelValue)
      << std::endl;

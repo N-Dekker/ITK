@@ -55,7 +55,7 @@ ExponentialDisplacementFieldImageFilter<TInputImage, TOutputImage>::PrintSelf(st
   Superclass::PrintSelf(os, indent);
 
   os << indent << "AutomaticNumberOfIterations: " << m_AutomaticNumberOfIterations << std::endl;
-  os << indent << "MaximumNumberOfIterations:   " << m_MaximumNumberOfIterations << std::endl;
+  os << indent << "MaximumNumberOfIterations: " << m_MaximumNumberOfIterations << std::endl;
   os << indent << "ComputeInverse:   " << (m_ComputeInverse ? "On" : "Off") << std::endl;
 }
 

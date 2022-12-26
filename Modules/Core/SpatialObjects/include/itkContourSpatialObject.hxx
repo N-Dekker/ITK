@@ -167,7 +167,7 @@ ContourSpatialObject<TDimension>::PrintSelf(std::ostream & os, Indent indent) co
   os << indent << "Contour closed: " << m_IsClosed << std::endl;
   os << indent << "Orientation In Object Space: " << m_OrientationInObjectSpace << std::endl;
   os << indent << "Orientation time: " << m_OrientationInObjectSpaceMTime << std::endl;
-  os << indent << "Pin to slice : " << m_AttachedToSlice << std::endl;
+  os << indent << "Pin to slice: " << m_AttachedToSlice << std::endl;
   Superclass::PrintSelf(os, indent);
 }
 

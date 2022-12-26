@@ -375,11 +375,11 @@ void
 SpatialObjectToImageFilter<TInputSpatialObject, TOutputImage>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Size : " << m_Size << std::endl;
-  os << indent << "Index : " << m_Index << std::endl;
-  os << indent << "Children depth : " << m_ChildrenDepth << std::endl;
-  os << indent << "Inside Value : " << m_InsideValue << std::endl;
-  os << indent << "Outside Value : " << m_OutsideValue << std::endl;
+  os << indent << "Size: " << m_Size << std::endl;
+  os << indent << "Index: " << m_Index << std::endl;
+  os << indent << "Children depth: " << m_ChildrenDepth << std::endl;
+  os << indent << "Inside Value: " << m_InsideValue << std::endl;
+  os << indent << "Outside Value: " << m_OutsideValue << std::endl;
   if (m_UseObjectValue)
   {
     os << indent << "Using Object Value : ON" << std::endl;

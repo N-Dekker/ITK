@@ -511,9 +511,9 @@ PolylineMaskImageFilter<TInputImage, TPolyline, TVector, TOutputImage>::PrintSel
      << std::endl;
   os << indent << "Up Vector: " << static_cast<typename NumericTraits<VectorType>::PrintType>(m_UpVector) << std::endl;
   os << indent << "Camera Center Point: " << m_CameraCenterPoint << std::endl;
-  os << indent << "Focal  Point       : " << m_FocalPoint << std::endl;
-  os << indent << "Focal Distance     : " << m_FocalDistance << std::endl;
-  os << indent << "Rotation matrix    : " << m_RotationMatrix << std::endl;
+  os << indent << "Focal  Point: " << m_FocalPoint << std::endl;
+  os << indent << "Focal Distance: " << m_FocalDistance << std::endl;
+  os << indent << "Rotation matrix: " << m_RotationMatrix << std::endl;
 }
 } // end namespace itk
 #endif

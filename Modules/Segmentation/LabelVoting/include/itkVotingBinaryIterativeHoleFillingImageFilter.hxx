@@ -101,10 +101,10 @@ VotingBinaryIterativeHoleFillingImageFilter<TInputImage>::PrintSelf(std::ostream
   os << indent
      << "Background value : " << static_cast<typename NumericTraits<InputPixelType>::PrintType>(m_BackgroundValue)
      << std::endl;
-  os << indent << "Maximum Number of Iterations : " << m_MaximumNumberOfIterations << std::endl;
-  os << indent << "Current Number of Iterations : " << m_CurrentNumberOfIterations << std::endl;
-  os << indent << "Majority Threshold           : " << m_MajorityThreshold << std::endl;
-  os << indent << "Number of Pixels Changed     : " << m_NumberOfPixelsChanged << std::endl;
+  os << indent << "Maximum Number of Iterations: " << m_MaximumNumberOfIterations << std::endl;
+  os << indent << "Current Number of Iterations: " << m_CurrentNumberOfIterations << std::endl;
+  os << indent << "Majority Threshold: " << m_MajorityThreshold << std::endl;
+  os << indent << "Number of Pixels Changed: " << m_NumberOfPixelsChanged << std::endl;
 }
 } // end namespace itk
 

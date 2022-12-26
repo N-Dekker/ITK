@@ -248,8 +248,8 @@ IterativeInverseDisplacementFieldImageFilter<TInputImage, TOutputImage>::PrintSe
   Superclass::PrintSelf(os, indent);
 
   os << indent << "Number of iterations: " << m_NumberOfIterations << std::endl;
-  os << indent << "Stop value:           " << m_StopValue << " mm" << std::endl;
-  os << indent << "Elapsed time:         " << m_Time << " sec" << std::endl;
+  os << indent << "Stop value: " << m_StopValue << " mm" << std::endl;
+  os << indent << "Elapsed time: " << m_Time << " sec" << std::endl;
   os << std::endl;
 }
 } // end namespace itk

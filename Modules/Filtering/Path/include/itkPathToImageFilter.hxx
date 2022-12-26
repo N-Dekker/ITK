@@ -288,9 +288,9 @@ void
 PathToImageFilter<TInputPath, TOutputImage>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Size : " << m_Size << std::endl;
-  os << indent << "Path Value : " << m_PathValue << std::endl;
-  os << indent << "Background Value : " << m_BackgroundValue << std::endl;
+  os << indent << "Size: " << m_Size << std::endl;
+  os << indent << "Path Value: " << m_PathValue << std::endl;
+  os << indent << "Background Value: " << m_BackgroundValue << std::endl;
 }
 } // end namespace itk
 

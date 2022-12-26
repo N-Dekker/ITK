@@ -41,8 +41,8 @@ ShapePriorMAPCostFunctionBase<TFeatureImage, TOutputPixel>::PrintSelf(std::ostre
 {
   Superclass::PrintSelf(os, indent);
   os << indent << "ShapeFunction: " << m_ShapeFunction.GetPointer() << std::endl;
-  os << indent << "ActiveRegion:  " << m_ActiveRegion.GetPointer() << std::endl;
-  os << indent << "FeatureImage:  " << m_FeatureImage.GetPointer() << std::endl;
+  os << indent << "ActiveRegion: " << m_ActiveRegion.GetPointer() << std::endl;
+  os << indent << "FeatureImage: " << m_FeatureImage.GetPointer() << std::endl;
 }
 
 /**

@@ -507,7 +507,7 @@ void
 TriangleMeshToBinaryImageFilter<TInputMesh, TOutputImage>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Size : " << m_Size << std::endl;
+  os << indent << "Size: " << m_Size << std::endl;
   os << indent << "Inside Value : " << static_cast<typename NumericTraits<ValueType>::PrintType>(m_InsideValue)
      << std::endl;
   os << indent << "Outside Value : " << static_cast<typename NumericTraits<ValueType>::PrintType>(m_OutsideValue)

@@ -166,10 +166,10 @@ void
 OrthogonalSwath2DPathFilter<TParametricPath, TSwathMeritImage>::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "StepValues:  " << m_StepValues.get() << std::endl;
-  os << indent << "MeritValues:  " << m_MeritValues.get() << std::endl;
-  os << indent << "OptimumStepsValues:  " << m_OptimumStepsValues.get() << std::endl;
-  os << indent << "FinalOffsetValues:  " << m_FinalOffsetValues << std::endl;
+  os << indent << "StepValues: " << m_StepValues.get() << std::endl;
+  os << indent << "MeritValues: " << m_MeritValues.get() << std::endl;
+  os << indent << "OptimumStepsValues: " << m_OptimumStepsValues.get() << std::endl;
+  os << indent << "FinalOffsetValues: " << m_FinalOffsetValues << std::endl;
 }
 
 // The next three functions are private helper functions

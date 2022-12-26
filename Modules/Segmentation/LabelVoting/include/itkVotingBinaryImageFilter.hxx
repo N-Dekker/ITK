@@ -167,8 +167,8 @@ VotingBinaryImageFilter<TInputImage, TOutput>::PrintSelf(std::ostream & os, Inde
   os << indent
      << "Background value : " << static_cast<typename NumericTraits<InputPixelType>::PrintType>(m_BackgroundValue)
      << std::endl;
-  os << indent << "Birth Threshold   : " << m_BirthThreshold << std::endl;
-  os << indent << "Survival Threshold   : " << m_SurvivalThreshold << std::endl;
+  os << indent << "Birth Threshold: " << m_BirthThreshold << std::endl;
+  os << indent << "Survival Threshold: " << m_SurvivalThreshold << std::endl;
 }
 } // end namespace itk
 

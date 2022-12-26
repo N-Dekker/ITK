@@ -97,7 +97,7 @@ void
 OrthogonallyCorrected2DParametricPath::PrintSelf(std::ostream & os, Indent indent) const
 {
   Superclass::PrintSelf(os, indent);
-  os << indent << "Original Path:  " << m_OriginalPath << std::endl;
-  os << indent << "Correction Table:  " << m_OrthogonalCorrectionTable << std::endl;
+  os << indent << "Original Path: " << m_OriginalPath << std::endl;
+  os << indent << "Correction Table: " << m_OrthogonalCorrectionTable << std::endl;
 }
 } // namespace itk
