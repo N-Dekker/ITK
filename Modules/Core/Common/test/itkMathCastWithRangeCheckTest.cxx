@@ -158,7 +158,9 @@ itkMathCastWithRangeCheckTest(int, char *[])
 #endif
 
   if (pass)
+  {
     return EXIT_SUCCESS;
+  }
   else
     return EXIT_FAILURE;
 }

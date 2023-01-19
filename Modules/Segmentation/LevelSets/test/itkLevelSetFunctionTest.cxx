@@ -61,7 +61,9 @@ square(unsigned int x, unsigned int y)
   Y = itk::Math::abs(y - static_cast<float>(HEIGHT) / 2.0);
   float dis;
   if (!((X > RADIUS) && (Y > RADIUS)))
+  {
     dis = RADIUS - std::max(X, Y);
+  }
   else
     dis = -std::sqrt((X - RADIUS) * (X - RADIUS) + (Y - RADIUS) * (Y - RADIUS));
   return dis;
@@ -198,7 +200,9 @@ private:
   Halt() override
   {
     if (this->GetElapsedIterations() == m_Iterations)
+    {
       return true;
+    }
     else
       return false;
   }

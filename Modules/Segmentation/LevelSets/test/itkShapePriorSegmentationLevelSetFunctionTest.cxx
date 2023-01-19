@@ -99,7 +99,9 @@ private:
   Halt() override
   {
     if (this->GetElapsedIterations() == m_NumberOfIterations)
+    {
       return true;
+    }
     else
       return false;
   }

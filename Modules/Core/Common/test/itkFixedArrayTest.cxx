@@ -76,9 +76,13 @@ itkFixedArrayTest(int, char *[])
 
   // Test operator!= and operator==
   if (array4 != array4)
+  {
     return EXIT_FAILURE; // should be equal
+  }
   if (!(array4 == array4))
+  {
     return EXIT_FAILURE; // should be equal
+  }
 
   // Test Get/Set element
   constexpr unsigned int           n = 20;

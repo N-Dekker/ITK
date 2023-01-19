@@ -135,7 +135,9 @@ itkResamplePhasedArray3DSpecialCoordinatesImageTest(int, char *[])
     }
   }
   if (!passed)
+  {
     std::cout << "Forward Sampling Failed!!!\n\n" << std::endl;
+  }
   else
     std::cout << "Forward Sampling Passed\n" << std::endl;
 
@@ -184,7 +186,9 @@ itkResamplePhasedArray3DSpecialCoordinatesImageTest(int, char *[])
     }
   }
   if (!passed)
+  {
     std::cout << "Resampling back to Phased Array coordinates Failed!!!\n\n" << std::endl;
+  }
   else
     std::cout << "Resampling back to Phased Array coordinates Passed\n" << std::endl;
 

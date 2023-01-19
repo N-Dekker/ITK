@@ -777,11 +777,11 @@ TEST(ShapedImageNeighborhoodRange, IteratorsSupportRandomAccess)
       // Operational semantics, as specified by the C++11 Standard:
       difference_type m = n;
       if (m >= 0)
+      {
         while (m--)
-          ++r;
-      else
-        while (m++)
-          --r;
+      }
+      ++r;
+      else while (m++)-- r;
       return r;
     }();
     r = initialIterator;

@@ -125,29 +125,32 @@ itkVotingBinaryImageFilterTest(int argc, char * argv[])
     case itk::IOComponentEnum::UCHAR:
     case itk::IOComponentEnum::SHORT:
       if (dimension == 2)
+      {
         return itkVotingBinaryImageFilterTestImp<itk::Image<short, 2>>(
+      }
           infname, outfname, radius, foregroundValue, backgroundValue);
-      else if (dimension == 3)
-        return itkVotingBinaryImageFilterTestImp<itk::Image<short, 3>>(
-          infname, outfname, radius, foregroundValue, backgroundValue);
-      break;
+          else if (dimension == 3) return itkVotingBinaryImageFilterTestImp<itk::Image<short, 3>>(
+            infname, outfname, radius, foregroundValue, backgroundValue);
+          break;
     case itk::IOComponentEnum::USHORT:
     case itk::IOComponentEnum::INT:
       if (dimension == 2)
+      {
         return itkVotingBinaryImageFilterTestImp<itk::Image<int, 2>>(
+      }
           infname, outfname, radius, foregroundValue, backgroundValue);
-      else if (dimension == 3)
-        return itkVotingBinaryImageFilterTestImp<itk::Image<int, 3>>(
-          infname, outfname, radius, foregroundValue, backgroundValue);
-      break;
+          else if (dimension == 3) return itkVotingBinaryImageFilterTestImp<itk::Image<int, 3>>(
+            infname, outfname, radius, foregroundValue, backgroundValue);
+          break;
     case itk::IOComponentEnum::UINT:
       if (dimension == 2)
+      {
         return itkVotingBinaryImageFilterTestImp<itk::Image<unsigned int, 2>>(
+      }
           infname, outfname, radius, foregroundValue, backgroundValue);
-      else if (dimension == 3)
-        return itkVotingBinaryImageFilterTestImp<itk::Image<unsigned int, 3>>(
-          infname, outfname, radius, foregroundValue, backgroundValue);
-      break;
+          else if (dimension == 3) return itkVotingBinaryImageFilterTestImp<itk::Image<unsigned int, 3>>(
+            infname, outfname, radius, foregroundValue, backgroundValue);
+          break;
     case itk::IOComponentEnum::ULONG:
     case itk::IOComponentEnum::LONG:
     case itk::IOComponentEnum::ULONGLONG:

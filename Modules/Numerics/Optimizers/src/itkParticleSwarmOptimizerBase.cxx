@@ -253,7 +253,9 @@ ParticleSwarmOptimizerBase::StartOptimization()
     if (this->m_IterationIndex >= m_NumberOfGenerationsWithMinimalImprovement)
     {
       if (index == this->m_NumberOfGenerationsWithMinimalImprovement)
+      {
         prevIndex = 0;
+      }
       else
         prevIndex = index + 1;
       // function value hasn't improved for a while, check the
@@ -281,7 +283,9 @@ ParticleSwarmOptimizerBase::StartOptimization()
 
   this->m_StopConditionDescription << GetNameOfClass() << ": ";
   if (converged)
+  {
     this->m_StopConditionDescription << "successfully converged after " << m_IterationIndex << " iterations";
+  }
   else
     this->m_StopConditionDescription << "terminated after " << m_IterationIndex << " iterations";
   InvokeEvent(EndEvent());

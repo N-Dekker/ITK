@@ -112,7 +112,9 @@ itkTransformsSetParametersTest(int, char *[])
   affine->SetParameters(affineParams);
   endMTime = affine->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -126,7 +128,9 @@ itkTransformsSetParametersTest(int, char *[])
   centeredAffine->SetParameters(centeredAffineParams);
   endMTime = centeredAffine->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -139,7 +143,9 @@ itkTransformsSetParametersTest(int, char *[])
   centeredEuler3D->SetParameters(centeredEuler3DParams);
   endMTime = centeredEuler3D->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -152,7 +158,9 @@ itkTransformsSetParametersTest(int, char *[])
   centeredRigid2D->SetParameters(centeredRigid2DParams);
   endMTime = centeredRigid2D->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -165,7 +173,9 @@ itkTransformsSetParametersTest(int, char *[])
   centeredSimilarity2D->SetParameters(centeredSimilarity2DParams);
   endMTime = centeredSimilarity2D->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -178,7 +188,9 @@ itkTransformsSetParametersTest(int, char *[])
   euler2D->SetParameters(euler2DParams);
   endMTime = euler2D->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -191,7 +203,9 @@ itkTransformsSetParametersTest(int, char *[])
   euler3D->SetParameters(euler3DParams);
   endMTime = euler3D->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -204,7 +218,9 @@ itkTransformsSetParametersTest(int, char *[])
   fixedCenteredAffine->SetParameters(fixedCenteredAffineParams);
   endMTime = fixedCenteredAffine->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -218,7 +234,9 @@ itkTransformsSetParametersTest(int, char *[])
   quaternionRigid->SetParameters(quaternionRigidParams);
   endMTime = quaternionRigid->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -231,7 +249,9 @@ itkTransformsSetParametersTest(int, char *[])
   rigid2D->SetParameters(rigid2DParams);
   endMTime = rigid2D->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -245,7 +265,9 @@ itkTransformsSetParametersTest(int, char *[])
   rigid3DPerspective->SetParameters(rigid3DPerspectiveParams);
   endMTime = rigid3DPerspective->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -258,7 +280,9 @@ itkTransformsSetParametersTest(int, char *[])
   scalableAffine->SetParameters(scalableAffineParams);
   endMTime = scalableAffine->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -271,7 +295,9 @@ itkTransformsSetParametersTest(int, char *[])
   scaleLogarithmic->SetParameters(scaleLogarithmicParams);
   endMTime = scaleLogarithmic->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -284,7 +310,9 @@ itkTransformsSetParametersTest(int, char *[])
   scaleSkewVersor3D->SetParameters(scaleSkewVersor3DParams);
   endMTime = scaleSkewVersor3D->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -297,7 +325,9 @@ itkTransformsSetParametersTest(int, char *[])
   scale->SetParameters(scaleParams);
   endMTime = scale->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -310,7 +340,9 @@ itkTransformsSetParametersTest(int, char *[])
   similarity2D->SetParameters(similarity2DParams);
   endMTime = similarity2D->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -323,7 +355,9 @@ itkTransformsSetParametersTest(int, char *[])
   similarity3D->SetParameters(similarity3DParams);
   endMTime = similarity3D->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -336,7 +370,9 @@ itkTransformsSetParametersTest(int, char *[])
   translation->SetParameters(translationParams);
   endMTime = translation->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -349,7 +385,9 @@ itkTransformsSetParametersTest(int, char *[])
   versor->SetParameters(versorParams);
   endMTime = versor->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -362,7 +400,9 @@ itkTransformsSetParametersTest(int, char *[])
   azimuthElevation->SetParameters(azimuthElevationParams);
   endMTime = azimuthElevation->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
@@ -375,7 +415,9 @@ itkTransformsSetParametersTest(int, char *[])
   versorRigid3D->SetParameters(versorRigid3DParams);
   endMTime = versorRigid3D->GetMTime();
   if (endMTime > beginMTime)
+  {
     std::cout << "PASS" << std::endl;
+  }
   else
     std::cout << "FAIL" << std::endl;
 
