@@ -651,6 +651,7 @@ endif()
 
 set(ITKCommonGTests
       itkAggregateTypesGTest.cxx
+      itkArray2DGTest.cxx
       itkBitCastGTest.cxx
       itkBooleanStdVectorGTest.cxx
       itkBuildInformationGTest.cxx

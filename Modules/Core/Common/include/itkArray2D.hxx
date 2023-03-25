@@ -28,6 +28,11 @@ Array2D<TValue>::Array2D(unsigned int numberOfRows, unsigned int numberOfCols)
 {}
 
 template <typename TValue>
+Array2D<TValue>::Array2D(unsigned int numberOfRows, unsigned int numberOfCols, const TValue & fillValue)
+  : vnl_matrix<TValue>(numberOfRows, numberOfCols, fillValue)
+{}
+
+template <typename TValue>
 Array2D<TValue>::Array2D(const VnlMatrixType & matrix)
   : vnl_matrix<TValue>(matrix)
 {}

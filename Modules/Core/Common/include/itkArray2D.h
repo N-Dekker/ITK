@@ -52,6 +52,7 @@ public:
 
   Array2D() = default;
   Array2D(unsigned int numberOfRows, unsigned int numberOfCols);
+  Array2D(unsigned int numberOfRows, unsigned int numberOfCols, const TValue & fillValue);
   Array2D(const Self & array);
   Array2D(const VnlMatrixType & matrix);
 
