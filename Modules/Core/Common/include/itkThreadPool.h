@@ -88,13 +88,13 @@ auto result = pool->AddWork([](int param) { return param; }, 7);
   {
     using return_type = std::invoke_result_t<Function, Arguments...>;
 
-    auto task = std::make_shared<std::packaged_task<return_type()>>(
+    std::packaged_task<return_type()> task(
       [function, arguments...]() -> return_type { return function(arguments...); });
 
-    std::future<return_type> res = task->get_future();
+    std::future<return_type> res = task.get_future();
     {
       const std::lock_guard<std::mutex> lockGuard(this->GetMutex());
-      m_WorkQueue.emplace_back([task]() { (*task)(); });
+      m_WorkQueue.emplace_back(std::move(task));
     }
     m_Condition.notify_one();
     return res;
@@ -147,10 +147,82 @@ private:
   /** Only used to synchronize the global variable across static libraries.*/
   itkGetGlobalDeclarationMacro(ThreadPoolGlobals, PimplGlobals);
 
+  // Move-only function object class (similar to C++23 `std::move_only_function<void()>`) that wraps a
+  // `std::packaged_task<T()>`. Internal, for implementation only.
+  class PackagedTaskFunction
+  {
+  private:
+    class AbstractTaskHolder
+    {
+    public:
+      ITK_DISALLOW_COPY_AND_MOVE(AbstractTaskHolder);
+
+      virtual void
+      Call() = 0;
+
+      virtual ~AbstractTaskHolder() = default;
+
+    protected:
+      AbstractTaskHolder() = default;
+    };
+
+    template <typename TResult>
+    class TaskHolder : public AbstractTaskHolder
+    {
+    public:
+      ITK_DISALLOW_COPY_AND_MOVE(TaskHolder);
+
+      explicit TaskHolder(std::packaged_task<TResult()> && task)
+        : m_Task(std::move(task))
+      {}
+
+      ~TaskHolder() final = default;
+
+    private:
+      void
+      Call() final
+      {
+        m_Task();
+      }
+
+      std::packaged_task<TResult()> m_Task{};
+    };
+
+  public:
+    // Explicit constructor.
+    template <typename TResult>
+    explicit PackagedTaskFunction(std::packaged_task<TResult()> && task)
+      : m_TaskHolder(std::make_unique<TaskHolder<TResult>>(std::move(task)))
+    {}
+
+    // Function-call operator.
+    void
+    operator()()
+    {
+      return m_TaskHolder->Call();
+    }
+
+    // Default-constructor and destructor.
+    PackagedTaskFunction() = default;
+    ~PackagedTaskFunction() = default;
+
+    // Allow move, but disallow copying:
+    PackagedTaskFunction(const PackagedTaskFunction &) = delete;
+    PackagedTaskFunction(PackagedTaskFunction &&) = default;
+    PackagedTaskFunction &
+    operator=(const PackagedTaskFunction &) = delete;
+    PackagedTaskFunction &
+    operator=(PackagedTaskFunction &&) = default;
+
+  private:
+    std::unique_ptr<AbstractTaskHolder> m_TaskHolder{};
+  };
+
+
   /** This is a list of jobs submitted to the thread pool.
    * This is the only place where the jobs are submitted.
    * Filled by AddWork, emptied by ThreadExecute. */
-  std::deque<std::function<void()>> m_WorkQueue; // guarded by m_PimplGlobals->m_Mutex
+  std::deque<PackagedTaskFunction> m_WorkQueue; // guarded by m_PimplGlobals->m_Mutex
 
   /** When a thread is idle, it is waiting on m_Condition.
    * AddWork signals it to resume a (random) thread. */
