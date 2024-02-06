@@ -35,7 +35,7 @@ template <unsigned int TDimension, typename TPixel>
 bool
 ImageMaskSpatialObject<TDimension, TPixel>::IsInsideInObjectSpace(const PointType & point) const
 {
-  const ImageType * const image = this->GetImage();
+  const ImageType * const image = this->Superclass::GetImage();
 
   const IndexType index = image->TransformPhysicalPointToIndex(point);
 
@@ -48,7 +48,7 @@ template <unsigned int TDimension, typename TPixel>
 void
 ImageMaskSpatialObject<TDimension, TPixel>::ComputeMyBoundingBox()
 {
-  const ImageType * const image = this->GetImage();
+  const ImageType * const image = this->Superclass::GetImage();
   itkAssertOrThrowMacro(image != nullptr, "Ensure that SetImage has been called!");
 
   const RegionType boundingBoxInIndexSpace{ this->ComputeMyBoundingBoxInIndexSpace() };
@@ -131,7 +131,7 @@ template <unsigned int TDimension, typename TPixel>
 auto
 ImageMaskSpatialObject<TDimension, TPixel>::ComputeMyBoundingBoxInIndexSpace() const -> RegionType
 {
-  const ImagePointer imagePointer = this->GetImage();
+  const ImagePointer imagePointer = this->Superclass::GetImage();
 
   if (imagePointer == nullptr)
   {
