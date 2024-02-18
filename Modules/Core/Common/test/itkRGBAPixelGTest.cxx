@@ -29,3 +29,12 @@ TEST(RGBAPixel, ValueInitializedIsZeroFilled)
   itk::RangeGTestUtilities::ExpectEachElementIsZero(itk::RGBAPixel<std::uint8_t>{});
   itk::RangeGTestUtilities::ExpectEachElementIsZero(itk::RGBAPixel<float>{});
 }
+
+
+// Tests that a RGBAPixel that is just default-constructed is already zero-filled.
+TEST(RGBAPixel, DefaultConstructedIsZeroFilled)
+{
+  // Default-construct a pixel without trailing `{}`.
+  const itk::RGBAPixel<> defaultConstructedPixel;
+  itk::RangeGTestUtilities::ExpectEachElementIsZero(defaultConstructedPixel);
+}

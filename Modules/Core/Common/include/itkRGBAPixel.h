@@ -77,6 +77,8 @@ public:
   using LuminanceType = typename NumericTraits<ComponentType>::RealType;
 
   /** Default-constructor.
+   * \note Unlike other pixel types, the default-constructors of `RGBPixel` and `RGBAPixel` types yield a zero-filled
+   * object, even when the object is not explicitly "value-initialized". (So even without `{}` or `()` syntax.)
    * \note The other five "special member functions" are defaulted implicitly, following the C++ "Rule of Zero". */
   RGBAPixel() { this->Fill(0); }
   /** Pass-through constructor for the Array base class. */
