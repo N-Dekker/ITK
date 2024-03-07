@@ -102,10 +102,6 @@ GradientMagnitudeImageFilter<TInputImage, TOutputImage>::DynamicThreadedGenerate
 
   ZeroFluxNeumannBoundaryCondition<TInputImage> nbc;
 
-  ConstNeighborhoodIterator<TInputImage> nit;
-  ConstNeighborhoodIterator<TInputImage> bit;
-  ImageRegionIterator<TOutputImage>      it;
-
   NeighborhoodInnerProduct<TInputImage, RealType> SIP;
 
   typename OutputImageType::Pointer     output = this->GetOutput();
@@ -134,7 +130,7 @@ GradientMagnitudeImageFilter<TInputImage, TOutputImage>::DynamicThreadedGenerate
 
   // Set the iterator radius to one, which is the value of the first
   // coordinate of the operator radius.
-  const auto radius = Size<ImageDimension>::Filled(1);
+  static constexpr auto radius = Size<ImageDimension>::Filled(1);
 
   // Find the data-set boundary "faces"
   NeighborhoodAlgorithm::ImageBoundaryFacesCalculator<TInputImage>                        bC;
@@ -144,22 +140,26 @@ GradientMagnitudeImageFilter<TInputImage, TOutputImage>::DynamicThreadedGenerate
 
   TotalProgressReporter progress(this, output->GetRequestedRegion().GetNumberOfPixels());
 
-  // Process non-boundary face
-  nit = ConstNeighborhoodIterator<TInputImage>(radius, input, faceList.front());
+  // Initialize the x_slice array
+  const auto x_slice = [&op] {
+    const ConstNeighborhoodIterator<InputImageType> nit(radius, inputImage, faceList.front());
 
-  std::slice          x_slice[ImageDimension];
-  const SizeValueType center = nit.Size() / 2;
-  for (i = 0; i < ImageDimension; ++i)
-  {
-    x_slice[i] = std::slice(center - nit.GetStride(i), op[i].GetSize()[0], nit.GetStride(i));
-  }
+    std::array<InputImageDimension> x_slice;
+    const SizeValueType             center = nit.Size() / 2;
+    for (unsigned int i = 0; i < InputImageDimension; ++i)
+    {
+      const auto stride = nit.GetStride(i);
+      x_slice[i] = std::slice(center - stride, op[i].GetSize()[0], stride);
+    }
+    return x_slice;
+  }();
 
   // Process each of the boundary faces.  These are N-d regions which border
   // the edge of the buffer.
   for (const auto & face : faceList)
   {
-    bit = ConstNeighborhoodIterator<InputImageType>(radius, input, face);
-    it = ImageRegionIterator<OutputImageType>(output, face);
+    ConstNeighborhoodIterator<InputImageType> bit(radius, input, face);
+    ImageRegionIterator<OutputImageType>      it(output, face);
     bit.OverrideBoundaryCondition(&nbc);
     bit.GoToBegin();
 

@@ -141,7 +141,7 @@ GradientImageFilter<TInputImage, TOperatorValueType, TOutputValueType, TOutputIm
 
   // Set the iterator radius to one, which is the value of the first
   // coordinate of the operator radius.
-  const auto radius = Size<InputImageDimension>::Filled(1);
+  static constexpr auto radius = Size<InputImageDimension>::Filled(1);
 
   // Find the data-set boundary "faces"
   NeighborhoodAlgorithm::ImageBoundaryFacesCalculator<InputImageType>                        bC;
@@ -151,22 +151,26 @@ GradientImageFilter<TInputImage, TOperatorValueType, TOutputValueType, TOutputIm
   TotalProgressReporter progress(this, this->GetOutput()->GetRequestedRegion().GetNumberOfPixels());
 
   // Initialize the x_slice array
-  ConstNeighborhoodIterator<InputImageType> nit(radius, inputImage, faceList.front());
+  const auto x_slice = [&op] {
+    const ConstNeighborhoodIterator<InputImageType> nit(radius, inputImage, faceList.front());
 
-  std::slice          x_slice[InputImageDimension];
-  const SizeValueType center = nit.Size() / 2;
-  for (unsigned int i = 0; i < InputImageDimension; ++i)
-  {
-    x_slice[i] = std::slice(center - nit.GetStride(i), op[i].GetSize()[0], nit.GetStride(i));
-  }
+    std::array<InputImageDimension> x_slice;
+    const SizeValueType             center = nit.Size() / 2;
+    for (unsigned int i = 0; i < InputImageDimension; ++i)
+    {
+      const auto stride = nit.GetStride(i);
+      x_slice[i] = std::slice(center - stride, op[i].GetSize()[0], stride);
+    }
+    return x_slice;
+  }();
 
   CovariantVectorType gradient;
   // Process non-boundary face and then each of the boundary faces.
   // These are N-d regions which border the edge of the buffer.
   for (const auto & face : faceList)
   {
-    nit = ConstNeighborhoodIterator<InputImageType>(radius, inputImage, face);
-    ImageRegionIterator<OutputImageType> it(outputImage, face);
+    ConstNeighborhoodIterator<InputImageType> nit(radius, inputImage, face);
+    ImageRegionIterator<OutputImageType>      it(outputImage, face);
     nit.OverrideBoundaryCondition(m_BoundaryCondition);
     nit.GoToBegin();
 
