@@ -1124,7 +1124,7 @@ protected:
   }
 
   /** Convenience method returns the IOComponentEnum corresponding to a string. */
-  IOComponentEnum
+  static IOComponentEnum
   GetComponentTypeFromString(const std::string & pointType);
 
 private:
