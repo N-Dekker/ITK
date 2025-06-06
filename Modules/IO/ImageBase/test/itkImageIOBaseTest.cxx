@@ -222,7 +222,7 @@ itkImageIOBaseTest(int, char *[])
         itk::ImageIOFactory::CreateImageIO("test", itk::ImageIOFactory::IOFileModeEnum::ReadMode);
       for (size_t i = 0; i < listComponentSize; ++i)
       {
-        const std::string componentTypeString = imageIOBase->GetComponentTypeAsString(listComponentType[i]);
+        const std::string componentTypeString = itk::ImageIOBase::GetComponentTypeAsString(listComponentType[i]);
         if (componentTypeString.compare(listComponentTypeString[i]) != 0)
         {
           std::cerr << "GetComponentTypeAsString(" << listComponentType[i] << ") should return '"

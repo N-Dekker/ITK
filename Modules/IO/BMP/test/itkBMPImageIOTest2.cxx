@@ -48,8 +48,8 @@ itkBMPImageIOTest2(int argc, char * argv[])
 
   std::cout << "PixelType: " << itk::ImageIOBase::GetPixelTypeAsString(reader->GetImageIO()->GetPixelType())
             << std::endl;
-  std::cout << "ComponentType: "
-            << reader->GetImageIO()->GetComponentTypeAsString(reader->GetImageIO()->GetComponentType()) << std::endl;
+  std::cout << "ComponentType: " << itk::ImageIOBase::GetComponentTypeAsString(reader->GetImageIO()->GetComponentType())
+            << std::endl;
   std::cout << "NumberOfComponents: " << reader->GetImageIO()->GetNumberOfComponents() << std::endl;
 
   ITK_TRY_EXPECT_NO_EXCEPTION(reader->Update());
