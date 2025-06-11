@@ -303,7 +303,7 @@ TestBaseClassMethodsMeshIO(typename TMeshIO::Pointer meshIO)
   std::cout << "ComponentTypeAsString: " << meshIO->GetComponentTypeAsString(floatComponent) << std::endl;
 
   const itk::CommonEnums::IOPixel pixelType = itk::CommonEnums::IOPixel::SCALAR;
-  std::cout << "PixelTypeAsString: " << meshIO->GetPixelTypeAsString(pixelType) << std::endl;
+  std::cout << "PixelTypeAsString: " << MeshIOBase::GetPixelTypeAsString(pixelType) << std::endl;
 
   const itk::CommonEnums::IOComponent pointComponentType = itk::CommonEnums::IOComponent::FLOAT;
   meshIO->SetPointComponentType(pointComponentType);
