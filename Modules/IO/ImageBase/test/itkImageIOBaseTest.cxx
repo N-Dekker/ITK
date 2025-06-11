@@ -232,7 +232,7 @@ itkImageIOBaseTest(int, char *[])
       }
       for (size_t i = 0; i < listPixelSize; ++i)
       {
-        const std::string pixelTypeString = imageIOBase->GetPixelTypeAsString(listIOPixelType[i]);
+        const std::string pixelTypeString = itk::ImageIOBase::GetPixelTypeAsString(listIOPixelType[i]);
         if (pixelTypeString.compare(listIOPixelTypeString[i]) != 0)
         {
           std::cerr << "GetPixelTypeAsString(" << listIOPixelType[i] << ") should return " << listIOPixelTypeString[i]

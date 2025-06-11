@@ -44,7 +44,7 @@ itkBMPImageIOTest(int argc, char * argv[])
 
   reader->UpdateOutputInformation();
 
-  std::cout << "PixelType: " << reader->GetImageIO()->GetPixelTypeAsString(reader->GetImageIO()->GetPixelType())
+  std::cout << "PixelType: " << itk::ImageIOBase::GetPixelTypeAsString(reader->GetImageIO()->GetPixelType())
             << std::endl;
   std::cout << "ComponentType: "
             << reader->GetImageIO()->GetComponentTypeAsString(reader->GetImageIO()->GetComponentType()) << std::endl;
