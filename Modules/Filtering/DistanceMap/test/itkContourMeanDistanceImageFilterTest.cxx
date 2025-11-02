@@ -41,13 +41,17 @@ itkContourMeanDistanceImageFilterTest(int argc, char * argv[])
     ImageDimension = 3
   };
 
+  using IndexType = itk::Index<ImageDimension>;
+  using SizeType = itk::Size<ImageDimension>;
+  using RegionType = itk::ImageRegion<ImageDimension>;
+
   using Image1Type = itk::Image<Pixel1Type, ImageDimension>;
   using Image2Type = itk::Image<Pixel2Type, ImageDimension>;
 
   auto image1 = Image1Type::New();
   auto image2 = Image2Type::New();
 
-  auto size = Image1Type::SizeType::Filled(50);
+  auto size = SizeType::Filled(50);
 
   image1->SetRegions(size);
   image2->SetRegions(size);
@@ -55,9 +59,6 @@ itkContourMeanDistanceImageFilterTest(int argc, char * argv[])
   image1->AllocateInitialized();
   image2->AllocateInitialized();
 
-  using RegionType = Image1Type::RegionType;
-
-  using IndexType = Image1Type::IndexType;
   IndexType index;
 
   size.Fill(20);
