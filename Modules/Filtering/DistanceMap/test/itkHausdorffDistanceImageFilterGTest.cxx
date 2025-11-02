@@ -101,15 +101,9 @@ TEST(HausdorffDistanceImageFilter, Test)
 
   // Compute the Hausdorff distance H(image2,image1)
   {
-    Image1Type::SpacingType spacing1 = image1->GetSpacing();
-    spacing1[0] = spacing1[0] / 2;
-    spacing1[1] = spacing1[1] / 2;
-    spacing1[2] = spacing1[2] / 2;
+    const Image1Type::SpacingType spacing1 = image1->GetSpacing() / 2.0;
     image1->SetSpacing(spacing1);
-    Image2Type::SpacingType spacing2 = image2->GetSpacing();
-    spacing2[0] = spacing2[0] / 2;
-    spacing2[1] = spacing2[1] / 2;
-    spacing2[2] = spacing2[2] / 2;
+    const Image2Type::SpacingType spacing2 = image2->GetSpacing() / 2.0;
     image2->SetSpacing(spacing2);
 
     using FilterType = itk::HausdorffDistanceImageFilter<Image2Type, Image1Type>;

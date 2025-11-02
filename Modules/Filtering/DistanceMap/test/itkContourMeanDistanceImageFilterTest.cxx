@@ -138,16 +138,10 @@ itkContourMeanDistanceImageFilterTest(int argc, char * argv[])
     auto useImageSpacing = static_cast<bool>(std::stoi(argv[1]));
     ITK_TEST_SET_GET_BOOLEAN(filter, UseImageSpacing, useImageSpacing);
 
-    Image1Type::SpacingType spacing1 = image1->GetSpacing();
-    spacing1[0] = spacing1[0] / 2;
-    spacing1[1] = spacing1[1] / 2;
-    spacing1[2] = spacing1[2] / 2;
+    const Image1Type::SpacingType spacing1 = image1->GetSpacing() / 2.0;
     image1->SetSpacing(spacing1);
 
-    Image2Type::SpacingType spacing2 = image2->GetSpacing();
-    spacing2[0] = spacing2[0] / 2;
-    spacing2[1] = spacing2[1] / 2;
-    spacing2[2] = spacing2[2] / 2;
+    const Image2Type::SpacingType spacing2 = image2->GetSpacing() / 2.0;
     image2->SetSpacing(spacing2);
 
     filter->SetInput1(image2);
