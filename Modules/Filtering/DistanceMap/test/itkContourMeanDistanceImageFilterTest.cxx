@@ -51,7 +51,7 @@ itkContourMeanDistanceImageFilterTest(int argc, char * argv[])
   auto image1 = Image1Type::New();
   auto image2 = Image2Type::New();
 
-  auto size = SizeType::Filled(50);
+  constexpr auto size = SizeType::Filled(50);
 
   image1->SetRegions(size);
   image2->SetRegions(size);
@@ -59,15 +59,8 @@ itkContourMeanDistanceImageFilterTest(int argc, char * argv[])
   image1->AllocateInitialized();
   image2->AllocateInitialized();
 
-  IndexType index;
-
-  size.Fill(20);
-  index.Fill(10);
-  RegionType region1 = { index, size };
-
-  size.Fill(15);
-  index.Fill(20);
-  RegionType region2 = { index, size };
+  const RegionType region1{ IndexType::Filled(10), SizeType::Filled(20) };
+  const RegionType region2{ IndexType::Filled(20), SizeType::Filled(15) };
 
   const itk::ImageRegionRange<Image1Type> imageRegionRange1(*image1, region1);
   std::iota(imageRegionRange1.begin(), imageRegionRange1.end(), Pixel1Type{ 1 });
