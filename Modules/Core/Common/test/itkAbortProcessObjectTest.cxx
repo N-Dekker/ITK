@@ -16,11 +16,14 @@
  *
  *=========================================================================*/
 
-#include <iostream>
 #include "itkExtractImageFilter.h"
+#include "itkImageBufferRange.h"
 #include "itkTestingMacros.h"
 
 #include "itkCommand.h"
+
+#include <iostream>
+#include <numeric>
 
 //
 // This test ensures the abort event occurs and the ProcessAborted
@@ -70,14 +73,8 @@ itkAbortProcessObjectTest(int, char *[])
   img->SetRegions(region);
   img->Allocate();
 
-  itk::ImageRegionIterator<ShortImage> iterator(img, region);
-
-  short i = 0;
-  while (!iterator.IsAtEnd())
-  {
-    iterator.Set(i++);
-    ++iterator;
-  }
+  const itk::ImageBufferRange<ShortImage> imageBufferRange(*img);
+  std::iota(imageBufferRange.begin(), imageBufferRange.end(), short{});
 
   // Create a filter
   const itk::ExtractImageFilter<ShortImage, ShortImage>::Pointer extract =
