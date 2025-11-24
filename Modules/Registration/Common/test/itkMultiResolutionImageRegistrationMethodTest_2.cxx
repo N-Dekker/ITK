@@ -133,8 +133,8 @@ itkMultiResolutionImageRegistrationMethodTest_2(int, char *[])
     center[j] = 0.5 * static_cast<double>(region.GetSize()[j]);
   }
 
-  itk::ImageRegionIterator<MovingImageType> mIter(movingImage, region);
-  itk::ImageRegionIterator<FixedImageType>  fIter(fixedImage, region);
+  itk::ImageRegionIteratorWithIndex<MovingImageType> mIter(movingImage, region);
+  itk::ImageRegionIterator<FixedImageType>           fIter(fixedImage, region);
 
   while (!mIter.IsAtEnd())
   {

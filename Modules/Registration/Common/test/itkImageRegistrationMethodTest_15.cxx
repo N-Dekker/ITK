@@ -143,8 +143,8 @@ itkImageRegistrationMethodTest_15(int, char *[])
   itk::Point<double, dimension>  p;
   itk::Vector<double, dimension> d;
 
-  itk::ImageRegionIterator<MovingImageType> mIter(movingImage, region);
-  itk::ImageRegionIterator<FixedImageType>  fIter(fixedImage, region);
+  itk::ImageRegionIteratorWithIndex<MovingImageType> mIter(movingImage, region);
+  itk::ImageRegionIterator<FixedImageType>           fIter(fixedImage, region);
 
   while (!mIter.IsAtEnd())
   {
