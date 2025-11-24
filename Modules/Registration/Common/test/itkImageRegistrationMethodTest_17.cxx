@@ -140,9 +140,6 @@ itkImageRegistrationMethodTest_17(int, char *[])
   movingImage->Allocate();
 
 
-  using MovingImageIterator = itk::ImageRegionIterator<MovingImageType>;
-  using FixedImageIterator = itk::ImageRegionIterator<FixedImageType>;
-
   itk::Point<double, dimension> center;
   for (unsigned int j = 0; j < dimension; ++j)
   {
@@ -152,8 +149,8 @@ itkImageRegistrationMethodTest_17(int, char *[])
   itk::Point<double, dimension>  p;
   itk::Vector<double, dimension> d;
 
-  MovingImageIterator mIter(movingImage, region);
-  FixedImageIterator  fIter(fixedImage, region);
+  itk::ImageRegionIterator<MovingImageType> mIter(movingImage, region);
+  itk::ImageRegionIterator<FixedImageType>  fIter(fixedImage, region);
 
   while (!mIter.IsAtEnd())
   {
