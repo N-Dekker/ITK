@@ -31,9 +31,7 @@ itkImageIteratorsForwardBackwardTest(int, char *[])
 
   ImageType::SizeType size;
 
-  size[0] = 4;
-  size[1] = 4;
-  size[2] = 4;
+  size = itk::Size<3>::Filled(4);
 
   const ImageType::RegionType region{ size };
 

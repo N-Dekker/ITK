@@ -70,9 +70,7 @@ itkSmoothingRecursiveGaussianImageFilterOnVectorImageTest(int, char *[])
     ++it;
   }
 
-  size[0] = 4;
-  size[1] = 4;
-  size[2] = 4;
+  size = itk::Size<3>::Filled(4);
 
   start[0] = 2;
   start[1] = 2;

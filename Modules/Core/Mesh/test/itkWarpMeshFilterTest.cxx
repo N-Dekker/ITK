@@ -65,9 +65,7 @@ itkWarpMeshFilterTest(int, char *[])
   start[2] = 0;
 
   DisplacementFieldType::SizeType size;
-  size[0] = 25;
-  size[1] = 25;
-  size[2] = 25;
+  size = itk::Size<3>::Filled(25);
 
   const DisplacementFieldType::RegionType region{ start, size };
 

@@ -36,9 +36,7 @@ itkImageSliceIteratorTest(int, char *[])
 
   ImageType::SizeType size;
 
-  size[0] = 100;
-  size[1] = 100;
-  size[2] = 100;
+  size = itk::Size<3>::Filled(100);
 
   ImageType::IndexType start{};
 
@@ -209,9 +207,7 @@ itkImageSliceIteratorTest(int, char *[])
     std::cout << "Test in a region < LargestPossibleRegion" << std::endl;
     std::cout << "Verifying for iterator...";
 
-    size[0] = 50;
-    size[1] = 50;
-    size[2] = 50;
+    size = itk::Size<3>::Filled(50);
 
     start[0] = 25;
     start[1] = 25;

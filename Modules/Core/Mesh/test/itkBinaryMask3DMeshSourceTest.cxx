@@ -104,9 +104,7 @@ itkBinaryMask3DMeshSourceTest(int argc, char * argv[])
   auto useRegion = static_cast<bool>(std::stoi(argv[1]));
   if (useRegion)
   {
-    size[0] = 9;
-    size[1] = 9;
-    size[2] = 9;
+    size = itk::Size<3>::Filled(9);
     region.SetSize(size);
     meshSource->SetRegionOfInterest(region);
     ITK_TEST_SET_GET_VALUE(region, meshSource->GetRegionOfInterest());

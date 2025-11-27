@@ -67,9 +67,7 @@ itkRecursiveGaussianImageFilterTest(int, char *[])
     // Initialize the content of Image A
     std::cout << "Input Image initialization " << std::endl;
 
-    size[0] = 60;
-    size[1] = 60;
-    size[2] = 60;
+    size = itk::Size<3>::Filled(60);
 
     start[0] = 20;
     start[1] = 20;
